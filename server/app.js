@@ -15,6 +15,13 @@ app.use(configuredHelmet());
 app.use(logErrors());
 app.use(morgan("dev"));
 
+app.use(function(req, res, next) {
+	res.header("Access-Control-Allow-Origin", "*");
+	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	next();
+  });
+
+
 if (app.get("env") === "production") {
 	app.enable("trust proxy");
 	app.use(httpsOnly());
