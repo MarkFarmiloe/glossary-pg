@@ -205,7 +205,7 @@ router.post("/terms/term", function (req, res) {
         .then((result) => {
             debug(result);
             if (result.rowCount === 0) {
-                res.json({message: `term with id of {termid} was not found`});
+                res.json({message: `term with id of ${termid} was not found`});
             } else {
                 debug(result);
                 res.json(result.rows[0]);
