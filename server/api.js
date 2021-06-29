@@ -197,7 +197,7 @@ router.get("/terms", function (req, res) {
         });
 });
 
-router.get("/terms/term", function (req, res) {
+router.post("/terms/term", function (req, res) {
     const termid = req.body.termid;
     const query = "SELECT id, term, definition FROM terms WHERE id = $1";
     database
@@ -217,7 +217,7 @@ router.get("/terms/term", function (req, res) {
         });
 });
 
-router.get("/term/resources", function (req, res) {
+router.post("/term/resources", function (req, res) {
     const termid = req.body.termid;
     const query = "SELECT id, link, linktype, language FROM term_resources where termid = $1";
     database

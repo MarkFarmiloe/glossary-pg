@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const About = () => {
 	const [results, setResults] = useState([]);
 	useEffect(() => {
-		fetch("/api/terms")
+		fetch("/api/terms/term", { method: 'POST', body: JSON.stringify({termid: 1})})
 			.then((res) => {
 				if (!res.ok) {
 					throw new Error(res.statusText);
